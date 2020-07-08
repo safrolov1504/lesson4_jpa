@@ -8,11 +8,11 @@
 </head>
 
 <body>
-    <h1>Добавить нового студента</h1>
+    <h1>Добавить новый товар</h1>
 
-    <form th:action="@{/students/add}" method="POST">
-        <input type="text" name="name" placeholder="Введите имя студента"/>
-        <input type="text" name="score" placeholder="Введите балл студента"/>
+    <form th:action="@{/products/add}" method="POST">
+        <input type="text" name="name" placeholder="Введите имя товара"/>
+        <input type="text" name="price" placeholder="Введите цену товара"/>
         <input type="submit"/>
     </form>
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Spring MVC GeekApp</title>
+</head>
+
+<body>
+    <h1>Список продуктов:</h1>
+    <table>
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>Название</td>
+            <td>Цена</td>
+            <td>Операции</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!--/*@thymesVar id="products" type="java.util.List<com.geekbrains.hw4.model.Product>"*/-->
+        <tr th:each="s : ${products}">
+                <td th:text="${s.id}"></td>
+                <td th:text="${s.name}"></td>
+                <td th:text="${s.price}"></td>
+                <td><a th:href="@{'/products/edit/' + ${s.id}}" >Редактировать</a></td>
+        </tr>
+        </tbody>
+        <a th:href="@{'/products/previous_page'}">Предыдущая страница</a>
+        <a th:href="@{'/products/next_page'}">Следующая страница</a>
+
+        <form th:action="@{/products}" method="POST">
+            <input type="text" name="maxPrice" placeholder="Введите максимальную цену"/>
+            <input type="text" name="minPrice" placeholder="Введите минимальную цену"/>
+            <input type="submit"/>
+        </form>
+    </table>
+    <a th:href="@{/}">на Главную страницу</a>
+</body>
+</html>

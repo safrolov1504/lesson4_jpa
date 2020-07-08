@@ -8,13 +8,13 @@
 </head>
 
 <body>
-    <h1>Изменить данные студента</h1>
-    <form th:action="@{/students/edit}" th:object="${student}" method="POST">
+    <h1>Изменить данные о товаре</h1>
+    <form th:action="@{/products/edit}" th:object="${product}" method="POST">
         <input hidden th:field="*{id}"/>
         <br>
         Name: <input th:field="*{name}"/>
         <br>
-        Score: <input th:field="*{score}"/>
+        Score: <input th:field="*{price}"/>
         <br>
         <input type="submit" value="Submit" />
     </form>
