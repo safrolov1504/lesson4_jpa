@@ -1,0 +1,3 @@
+DROP TABLE products IF EXISTS;
+CREATE TABLE IF NOT EXISTS products (id bigserial, name VARCHAR(255), price int, PRIMARY KEY (id));
+INSERT INTO products (name, price) VALUES ('pc', 70), ('Bob2', 80), ('monitor', 50), ('Key bord', 60), ('phone', 80), ('tablet', 80), ('iphone', 60), ('ipad', 90), ('audio system', 50), ('windows', 60), ('MacOS', 40), ('PCU', 70), ('Bob13', 80), ('mouse', 40), ('web-camera', 50), ('microphone', 70), ('Bluetooth', 80), ('USB', 90), ('Program', 90), ('Office', 50);
