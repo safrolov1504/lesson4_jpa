@@ -42,19 +42,14 @@
     </bean>
 
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="org.postgresql.Driver"/>
-        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/postgres?currentSchema=hiber"/>
-        <property name="user" value="postgres"/>
-        <property name="password" value="Root1234"/>
-
-<!--        <property name="driverClass">org.postgresql.Driver</property>-->
-<!--        <property name="connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=hiber</property>-->
-<!--        <property name="connection.username">postgres</property>-->
-<!--        <property name="connection.password">Root1234</property>-->
-<!--        <property name="connection.pool_size">8</property>-->
-<!--        <property name="dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>-->
-<!--        <property name="show_sql">true</property>-->
-<!--        <property name="current_session_context_class">thread</property>-->
+<!--        <property name="driverClass" value="org.postgresql.Driver"/>-->
+<!--        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/postgres?currentSchema=hiber"/>-->
+<!--        <property name="user" value="postgres"/>-->
+<!--        <property name="password" value="Root1234"/>-->
+        <property name="driverClass" value="org.h2.Driver"/>
+        <property name="jdbcUrl" value="jdbc:h2:mem:mydatabase;MODE=PostgreSQL"/>
+        <property name="user" value="sa"/>
+        <property name="password" value=""/>
 
         <property name="minPoolSize" value="1"/>
         <property name="maxPoolSize" value="5"/>
@@ -63,11 +58,11 @@
 
     <tx:annotation-driven/>
 
-    <jpa:repositories base-package="com.geekbrains.spring.mvc.repositories"/>
+    <jpa:repositories base-package="com.geekbrains.hw4.repositories"/>
 
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="packagesToScan" value="com.geekbrains.spring.mvc.model"/>
+        <property name="packagesToScan" value="com.geekbrains.hw4.model"/>
         <property name="dataSource" ref="dataSource"/>
 
         <property name="jpaProperties">
@@ -75,6 +70,7 @@
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.hbm2ddl.auto">create</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+<!--                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL94Dialect</prop>-->
             </props>
         </property>
 
